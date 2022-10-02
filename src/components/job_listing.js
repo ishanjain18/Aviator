@@ -46,7 +46,7 @@ const JobListing = (props) => {
       <Card style={cardStyle}>
         <Card.Body>
           <Card.Title>{company}</Card.Title>
-          <Card.Title>{title + " @ " + location}</Card.Title>
+          <Card.Title>{title + " | " + location}</Card.Title>
           <h6>{`Salary Range - ${min_salary} to ${max_salary} INR`}</h6>
           <Card.Subtitle>{"Job ID: " + job_id}</Card.Subtitle>
 
