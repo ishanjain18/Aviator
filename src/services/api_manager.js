@@ -1,38 +1,47 @@
 import axios from "axios";
 
-export const getApiData = async (companies = "", models = "", years = "") => {
+export const getJobs = async (job_id = "") => {
   let data;
-
-  // companies = 1;
-  // models = 3;
-  // years = 3;
-  console.log(
-    "https://ishanjain.pythonanywhere.com/listings?companies=" +
-      companies +
-      "&model=" +
-      models +
-      "&year=" +
-      years
-  );
-  console.log("hello");
   await axios
-    .get(
-      "https://ishanjain.pythonanywhere.com/listings?companies=" +
-        companies +
-        "&model=" +
-        models +
-        "&year=" +
-        years
-    )
+    .get(`https://ishanjain2.pythonanywhere.com/jobs/${job_id}`)
     .then((response) => {
       data = response.data;
     });
   return data;
 };
 
-export const postApiData = async (post_data) => {
+export const postJobs = async (post_data) => {
   await axios
-    .post("https://ishanjain.pythonanywhere.com/listings/add", post_data)
+    .post("https://ishanjain2.pythonanywhere.com/jobs/", post_data)
+    .then((response) => {
+      console.log(response.data);
+    });
+};
+
+export const getApplications = async (application_id = "") => {
+  let data;
+  await axios
+    .get(`https://ishanjain2.pythonanywhere.com/applications/${application_id}`)
+    .then((response) => {
+      data = response.data;
+    });
+  return data;
+};
+
+export const deleteApplication = async (application_id) => {
+  await axios
+    .delete(
+      `https://ishanjain2.pythonanywhere.com/applications/${application_id}`
+    )
+    .then((response) => {
+      console.log(response.data);
+      return response;
+    });
+};
+
+export const postApplications = async (post_data) => {
+  await axios
+    .post("https://ishanjain2.pythonanywhere.com/applications/", post_data)
     .then((response) => {
       console.log(response.data);
     });

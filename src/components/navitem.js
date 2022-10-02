@@ -1,17 +1,18 @@
 import React from "react";
 
 const NavItem = (props) => {
-  const { icon, isActive, title } = props;
+  const { icon, isActive, title, onClick } = props;
   return (
     <li>
-      <a
-        href="/"
-        className={`text-white nav-link ${isActive ? "active" : ""}`}
+      <span
+        onClick={onClick}
+        role="button"
+        className={`text-white mt-2 nav-link ${isActive ? "active" : ""}`}
         aria-current="page"
       >
         {icon}
         {title}
-      </a>
+      </span>
     </li>
   );
 };
