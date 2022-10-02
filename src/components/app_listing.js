@@ -46,16 +46,7 @@ const AppListing = (props) => {
     <>
       <Card style={cardStyle}>
         <Card.Body>
-          <Card.Title>
-            {JobData.title +
-              " @ " +
-              JobData.company +
-              " - (" +
-              JobData.min_salary +
-              " - " +
-              JobData.max_salary +
-              ")"}
-          </Card.Title>
+          <Card.Title>{JobData.title + " @ " + JobData.company}</Card.Title>
           <Card.Subtitle>
             {"Application ID: " + application_id + " | " + JobData.location}{" "}
           </Card.Subtitle>
